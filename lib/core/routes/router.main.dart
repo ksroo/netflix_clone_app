@@ -20,7 +20,10 @@ class AppRouter {
       path: splash,
       pageBuilder: (context, state) {
         return buildScaleTransitionPage(
-          page: const SplashScreen(),
+          page: BlocProvider(
+            create: (context) => sl<SplashCubit>()..appStarted(),
+            child: const SplashScreen(),
+          ),
         );
       },
     );

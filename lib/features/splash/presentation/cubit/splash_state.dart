@@ -1,10 +1,30 @@
-// part of 'splash_cubit.dart';
+part of 'splash_cubit.dart';
 
-// abstract class SplashState extends Equatable {
-//   const SplashState();
+enum SplashStatus {
+  displaySplash,
+  authenticated,
+  unAuthenticated,
+}
 
-//   @override
-//   List<Object> get props => [];
-// }
+extension SplashStatusX on SplashState {
+  bool get isDisplaySplash => status == SplashStatus.displaySplash;
+  bool get isAuthenticated => status == SplashStatus.authenticated;
+  bool get isUnAuthenticated => status == SplashStatus.unAuthenticated;
+}
 
-// class SplashInitial extends SplashState {}
+@immutable
+class SplashState {
+  final SplashStatus status;
+
+  const SplashState({
+    required this.status,
+  });
+
+  SplashState copyWith({
+    SplashStatus? status,
+  }) {
+    return SplashState(
+      status: status ?? this.status,
+    );
+  }
+}
