@@ -9,6 +9,11 @@ void main() async {
   /// initialize screen util
   await ScreenUtil.ensureScreenSize();
 
+  /// set system ui overlay style
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
+  );
+
   /// set preferred orientation
   await SystemChrome.setPreferredOrientations(
     [
