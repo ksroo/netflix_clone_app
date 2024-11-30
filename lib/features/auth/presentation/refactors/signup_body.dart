@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:netflix/core/helper/spacing.dart';
 import 'package:netflix/core/routes/router.dart';
-import '../widgets/custom_button.dart';
+import 'package:netflix/features/auth/presentation/widgets/custom_button.dart';
 
-class SignInBody extends StatelessWidget {
-  const SignInBody({super.key});
+class SignupBody extends StatelessWidget {
+  const SignupBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +14,9 @@ class SignInBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        /// Sign IN Text
+        /// Sign Up Text
         const Text(
-          'Sign In',
+          'Sign Up',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 24,
@@ -43,27 +43,27 @@ class SignInBody extends StatelessWidget {
 
         verticalSpace(60),
 
-        /// Sign In Button
+        /// Sign Up Button
         CustomButton(
           onPressed: () {},
-          text: 'Sign In',
+          text: 'Sign Up',
         ),
 
         verticalSpace(20),
 
-        /// Sign Up Text Button
+        /// Sign IN Text Button
         Text.rich(
           TextSpan(
             children: [
-              const TextSpan(text: "Don't have an account? "),
+              const TextSpan(text: "Do you have account? "),
               TextSpan(
-                text: "Sign Up",
+                text: "Sign IN",
                 style: const TextStyle(
                   color: Colors.blue,
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    context.pushReplacementNamed(AppRouter.signup);
+                    context.pushReplacementNamed(AppRouter.singin);
                   },
               ),
             ],
